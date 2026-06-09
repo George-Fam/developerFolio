@@ -42,26 +42,31 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "What I do",
-  subTitle: "I build polished web systems, automation, and infrastructure that can be shipped and maintained.",
+  subTitle:
+    "I build polished web systems, automation, and infrastructure that can be shipped and maintained.",
   skills: [
-    emoji("⚡ Full-stack web apps with Angular, Spring Boot, REST APIs, and SQL"),
+    emoji(
+      "⚡ Full-stack web apps with Angular, Spring Boot, REST APIs, and SQL"
+    ),
     emoji("⚡ Deployment pipelines, Docker-based services, and cloud delivery"),
     emoji("⚡ Automation, CI/CD, and tooling that reduces manual work"),
-    emoji("⚡ Open-source bug fixes and platform extensions across web and desktop")
+    emoji(
+      "⚡ Open-source bug fixes and platform extensions across web and desktop"
+    )
   ],
   softwareSkills: [
-    { skillName: "java", fontAwesomeClassname: "fab fa-java" },
-    { skillName: "angular", fontAwesomeClassname: "fab fa-angular" },
-    { skillName: "typescript", fontAwesomeClassname: "fas fa-code" },
-    { skillName: "javascript", fontAwesomeClassname: "fab fa-js" },
-    { skillName: "spring boot", fontAwesomeClassname: "fas fa-leaf" },
-    { skillName: "docker", fontAwesomeClassname: "fab fa-docker" },
-    { skillName: "azure", fontAwesomeClassname: "fab fa-microsoft" },
-    { skillName: "gcp", fontAwesomeClassname: "fab fa-google" },
-    { skillName: "sql", fontAwesomeClassname: "fas fa-database" },
-    { skillName: "linux", fontAwesomeClassname: "fab fa-linux" },
-    { skillName: "bash", fontAwesomeClassname: "fas fa-terminal" },
-    { skillName: "python", fontAwesomeClassname: "fab fa-python" }
+    {skillName: "java", fontAwesomeClassname: "fab fa-java"},
+    {skillName: "angular", fontAwesomeClassname: "fab fa-angular"},
+    {skillName: "typescript", fontAwesomeClassname: "fas fa-code"},
+    {skillName: "javascript", fontAwesomeClassname: "fab fa-js"},
+    {skillName: "spring boot", fontAwesomeClassname: "fas fa-leaf"},
+    {skillName: "docker", fontAwesomeClassname: "fab fa-docker"},
+    {skillName: "azure", fontAwesomeClassname: "fab fa-microsoft"},
+    {skillName: "gcp", fontAwesomeClassname: "fab fa-google"},
+    {skillName: "sql", fontAwesomeClassname: "fas fa-database"},
+    {skillName: "linux", fontAwesomeClassname: "fab fa-linux"},
+    {skillName: "bash", fontAwesomeClassname: "fas fa-terminal"},
+    {skillName: "python", fontAwesomeClassname: "fab fa-python"}
   ],
   display: true
 };
@@ -83,9 +88,9 @@ const educationInfo = {
 const techStack = {
   viewSkillBars: false,
   experience: [
-    { Stack: "Frontend", progressPercentage: "90%" },
-    { Stack: "Backend", progressPercentage: "85%" },
-    { Stack: "DevOps / Automation", progressPercentage: "80%" }
+    {Stack: "Frontend", progressPercentage: "90%"},
+    {Stack: "Backend", progressPercentage: "85%"},
+    {Stack: "DevOps / Automation", progressPercentage: "80%"}
   ],
   displayCodersrank: false
 };
@@ -162,8 +167,11 @@ const bigProjects = {
       projectDesc:
         "Gamified donation platform for Shield of Athena, built in a 5-person team and awarded 2nd place at Morgan Stanley's Code to Give Hackathon.",
       footerLink: [
-        { name: "Live site", url: "https://donatewithathena.com/" },
-        { name: "Repository", url: "https://github.com/George-Fam/DonateWithAthena" }
+        {name: "Live site", url: "https://donatewithathena.com/"},
+        {
+          name: "Repository",
+          url: "https://github.com/George-Fam/DonateWithAthena"
+        }
       ]
     },
     {
@@ -172,37 +180,51 @@ const bigProjects = {
       projectDesc:
         "Full-stack Angular 21 + Java 17 association platform with CMS-driven content, FAQ search, and calendar synchronization.",
       footerLink: [
-        { name: "Live site", url: "https://ageei.org/" },
-        { name: "Repository", url: "https://gitlab.com/ageei/ageei.org" }
+        {name: "Live site", url: "https://ageei.org/"},
+        {name: "Repository", url: "https://gitlab.com/ageei/ageei.org"}
       ]
     },
     {
-      image: "https://raw.githubusercontent.com/George-Fam/plezy-tizen/main/assets/plezy.png",
+      image:
+        "https://raw.githubusercontent.com/George-Fam/plezy-tizen/main/assets/plezy.png",
       projectName: "plezy-tizen",
       projectDesc:
         "Flutter-based Plex/Jellyfin client fork extended to Samsung Tizen with a native C# media player and CI/CD support.",
-      footerLink: [{ name: "Repository", url: "https://github.com/George-Fam/plezy-tizen" }]
+      footerLink: [
+        {name: "Repository", url: "https://github.com/George-Fam/plezy-tizen"}
+      ]
     },
     {
-      image: "https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/9/92/LaTeX_logo.svg",
       projectName: "LaTeX CV & Cover Letter Automation",
       projectDesc:
         "PowerShell and Python automation for generating, validating, and compiling multiple CV variants with GitHub Actions.",
-      footerLink: [{ name: "Repository", url: "https://github.com/George-Fam/Resume" }]
+      footerLink: [
+        {name: "Repository", url: "https://github.com/George-Fam/Resume"}
+      ]
     },
     {
-      image: "https://media.geeksforgeeks.org/wp-content/uploads/20250703161306662411/Example-of-an-AVL-Tree-11.webp",
+      image:
+        "https://media.geeksforgeeks.org/wp-content/uploads/20250703161306662411/Example-of-an-AVL-Tree-11.webp",
       projectName: "AVL Tree Implementation",
       projectDesc:
         "C++ AVL tree with set operations and tests for correctness and performance; ranked 1st out of 116.",
-      footerLink: [{ name: "Repository", url: "https://github.com/George-Fam/AVLTree" }]
+      footerLink: [
+        {name: "Repository", url: "https://github.com/George-Fam/AVLTree"}
+      ]
     },
     {
       image: brandAssets.tux,
       projectName: "linutil open-source fix",
       projectDesc:
         "Fixed a runtime failure in the Ollama installer script of a popular Linux toolbox, restoring the installation flow for users.",
-      footerLink: [{ name: "PR #1223", url: "https://github.com/ChrisTitusTech/linutil/pull/1223" }]
+      footerLink: [
+        {
+          name: "PR #1223",
+          url: "https://github.com/ChrisTitusTech/linutil/pull/1223"
+        }
+      ]
     }
   ],
   display: true
@@ -217,17 +239,19 @@ const achievementSection = {
       subtitle: "4th place in DevOps.",
       image: "https://2026.csgames.org/img/CS-GAMES-26-LOGO.svg",
       imageAlt: "CSGames logo",
-      footerLink: [
-        { name: "CSGames", url: "https://2026.csgames.org/" }
-      ]
+      footerLink: [{name: "CSGames", url: "https://2026.csgames.org/"}]
     },
     {
       title: "Morgan Stanley Code to Give",
       subtitle: "2nd place out of 14 teams for Donate With Athena.",
-      image: "https://media.licdn.com/dms/image/v2/D5612AQHD-9v8FnpTCA/article-cover_image-shrink_600_2000/B56ZT.TABIGUAU-/0/1739433181799?e=1782345600&v=beta&t=7DcZkhm-Z1SSHBRKWNRkzqFkwPK99Z2kX1NLeKaE1Xk",
+      image:
+        "https://media.licdn.com/dms/image/v2/D5612AQHD-9v8FnpTCA/article-cover_image-shrink_600_2000/B56ZT.TABIGUAU-/0/1739433181799?e=1782345600&v=beta&t=7DcZkhm-Z1SSHBRKWNRkzqFkwPK99Z2kX1NLeKaE1Xk",
       imageAlt: "Morgan Stanley Code to Give",
       footerLink: [
-        { name: "LinkedIn post", url: "https://www.linkedin.com/posts/george-fam_codetogive-share-7396397437004845057-oDop/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC20l1oB394J8T-vBLVxWxrGSFRJGJrbmoU" }
+        {
+          name: "LinkedIn post",
+          url: "https://www.linkedin.com/posts/george-fam_codetogive-share-7396397437004845057-oDop/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC20l1oB394J8T-vBLVxWxrGSFRJGJrbmoU"
+        }
       ]
     }
   ],
@@ -264,7 +288,8 @@ const resumeSection = {
 
 const contactInfo = {
   title: emoji("Contact Me ☎️"),
-  subtitle: "If you want to talk projects, internships, or collaboration, my inbox is open.",
+  subtitle:
+    "If you want to talk projects, internships, or collaboration, my inbox is open.",
   number: "514-663-9709",
   email_address: "fam.george@courrier.uqam.ca"
 };
