@@ -5,7 +5,8 @@ const brandAssets = {
   jeancoutu: require("./assets/images/brands/jean-coutu-logo.png"),
   couchetard: require("./assets/images/brands/couche-tard-logo.png"),
   ageei: require("./assets/images/brands/ageei-logo.png"),
-  tux: require("./assets/images/brands/tux-logo.png")
+  tux: require("./assets/images/brands/tux-logo.png"),
+  morganStanleyCodeToGive: require("./assets/images/brands/morgan-stanley-code-to-give.jpg")
 };
 
 const projectAssets = {
@@ -244,8 +245,7 @@ const achievementSection = {
     {
       title: "Morgan Stanley Code to Give",
       subtitle: "2nd place out of 14 teams for Donate With Athena.",
-      image:
-        "https://media.licdn.com/dms/image/v2/D5612AQHD-9v8FnpTCA/article-cover_image-shrink_600_2000/B56ZT.TABIGUAU-/0/1739433181799?e=1782345600&v=beta&t=7DcZkhm-Z1SSHBRKWNRkzqFkwPK99Z2kX1NLeKaE1Xk",
+      image: brandAssets.morganStanleyCodeToGive,
       imageAlt: "Morgan Stanley Code to Give",
       footerLink: [
         {
