@@ -1,38 +1,89 @@
 name: Build and Deploy
+
 env:
   CI: false
   GITHUB_USERNAME: ${{ github.repository_owner }}
-  REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This is automatically set by Github Actions
+  REACT_APP_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   USE_GITHUB_DATA: "true"
-  MEDIUM_USERNAME: "saadpasta" # Change this to your medium username
+
 on:
   workflow_dispatch:
+    inputs:
+      resume_tag:
+        description: "Resume release tag to sync before deploy. Leave blank to use the checked-in PDF."
+        required: false
+        type: string
+  repository_dispatch:
+    types:
+      - resume_release
   push:
     branches:
       - master
   schedule:
-    - cron: "0 12 * * 1" # see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events
+    - cron: "0 12 * * 1"
+
+concurrency:
+  group: portfolio-deploy
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     permissions:
       contents: write
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3 # If you're using actions/checkout@v3 you must set persist-credentials to false in most cases for the deployment to work correctly.
-        with:
-          persist-credentials: false
 
-      - name: Setup Node.js 🔧
-        uses: actions/setup-node@v3.8.1
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          ref: master
+
+      - name: Sync resume PDF
+        if: github.event_name == 'repository_dispatch' || (github.event_name == 'workflow_dispatch' && github.event.inputs.resume_tag != '')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESUME_REPO: George-Fam/Resume
+          RESUME_TAG: ${{ github.event.client_payload.release_tag || github.event.inputs.resume_tag || 'latest' }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p /tmp/resume-release
+          if [ "$RESUME_TAG" = "latest" ]; then
+            gh release download --repo "$RESUME_REPO" --pattern "GeorgeFamCV.pdf" --dir /tmp/resume-release
+          else
+            gh release download "$RESUME_TAG" --repo "$RESUME_REPO" --pattern "GeorgeFamCV.pdf" --dir /tmp/resume-release
+          fi
+
+          test -s /tmp/resume-release/GeorgeFamCV.pdf
+          cp /tmp/resume-release/GeorgeFamCV.pdf src/containers/greeting/resume.pdf
+
+          if git diff --quiet -- src/containers/greeting/resume.pdf; then
+            echo "Resume PDF is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/containers/greeting/resume.pdf
+          git commit -m "chore: update resume PDF from Resume ${RESUME_TAG}"
+          git push
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 20.x
+          cache: npm
 
-      - name: Install and Build 🔧 # Build the Project
+      - name: Install dependencies
         run: |
-          npm install
+          npm ci
+
+      - name: Build
+        run: |
           npm run build
-      - name: Deploy 🚀
+
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
